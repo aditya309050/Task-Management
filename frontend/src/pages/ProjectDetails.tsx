@@ -183,7 +183,8 @@ export const ProjectDetails: React.FC = () => {
   const getAvatarUrl = (url: string | null) => {
     if (!url) return null;
     if (url.startsWith("http")) return url;
-    return `http://localhost:5000${url}`;
+    const backendHost = import.meta.env.VITE_SERVER_URL || "https://task-management-tyxd.onrender.com";
+    return `${backendHost}${url}`;
   };
 
   const isOverdue = (dateString: string | null, status: string) => {

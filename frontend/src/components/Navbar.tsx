@@ -24,7 +24,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
   const getAvatarUrl = (url: string | null | undefined) => {
     if (!url) return null;
     if (url.startsWith("http")) return url;
-    return `http://localhost:5000${url}`;
+    const backendHost = import.meta.env.VITE_SERVER_URL || "https://task-management-tyxd.onrender.com";
+    return `${backendHost}${url}`;
   };
 
   return (
