@@ -70,9 +70,9 @@ export async function login(req: Request, res: Response) {
         createdAt: user.createdAt,
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Login error:", error);
-    res.status(500).json({ message: "Internal server error during login" });
+    res.status(500).json({ message: "Internal server error during login", details: error?.message });
   }
 }
 
