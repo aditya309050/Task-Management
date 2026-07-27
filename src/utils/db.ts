@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { Pool } from "pg";
 import { PrismaPg } from "@prisma/adapter-pg";
 import dotenv from "dotenv";
 
@@ -11,7 +10,8 @@ if (!connectionString) {
   throw new Error("DATABASE_URL environment variable is missing!");
 }
 
-const pool = new Pool({ connectionString });
-const adapter = new PrismaPg(pool);
+const adapter = new PrismaPg({
+  connectionString,
+});
 
 export const prisma = new PrismaClient({ adapter });
