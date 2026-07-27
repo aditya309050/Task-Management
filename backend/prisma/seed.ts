@@ -110,7 +110,7 @@ async function main() {
     },
   });
 
-  const task3 = await prisma.task.create({
+  await prisma.task.create({
     data: {
       title: "React Dashboard UI Setup",
       description: "Set up Tailwind CSS, Recharts for statistics, and integrate React Query for state management.",
@@ -122,7 +122,7 @@ async function main() {
     },
   });
 
-  const task4 = await prisma.task.create({
+  await prisma.task.create({
     data: {
       title: "Security & JWT Validation Audit",
       description: "Perform code audit to check for XSS, SQL injection, and verify JWT token expirations.",
